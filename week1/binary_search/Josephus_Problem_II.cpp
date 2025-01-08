@@ -7,23 +7,21 @@ int main() {
     long long k;
     cin >> n >> k;
 
-    vector<int> children;
-    for (int i = 1; i <= n; ++i) {
-        children.push_back(i);
-    }
+    // for (int i = 1; i <= n; ++i) {
+    //     children.push_back(i);
+    // }
 
-    int idx = 0;  
-    vector<int> removalOrder;
+    int idx = 0;   
 
     while (!children.empty()) {
-        idx = (idx + k + 1) % children.size();  
-        removalOrder.push_back(children[idx]);
-        children.erase(children.begin() + idx);  
+        idx = (idx + k + 1);
+        if(idx >= n) {
+            idx = idx % n;
+        }
+        cout<< idx << " ";
     }
 
-    for (int child : removalOrder) {
-        cout << child << " ";
-    }
+    
 
     return 0;
 }
